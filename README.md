@@ -1,5 +1,9 @@
 # Discord Reaction & Poll Role Manager
 
+[![tests](https://github.com/jigyasu2004/discord-reaction-role-manager/actions/workflows/tests.yml/badge.svg)](https://github.com/jigyasu2004/discord-reaction-role-manager/actions/workflows/tests.yml)
+
+[Watch the 36-second demo](demo/discord-role-manager-demo.mp4)
+
 A safe, one-shot command-line tool that adds or removes a Discord role for everyone who:
 
 - reacted to a specific message, or
@@ -131,6 +135,16 @@ ruff check .
 ```
 
 The tests cover message-link parsing, reactor/poll-voter deduplication, bot exclusion, ADD/REMOVE planning, already-present role handling, and dry-run safety.
+
+Reviewers can also run a credential-free deterministic demonstration of the
+collection and role-update core:
+
+```bash
+python demo_offline.py
+```
+
+This offline demonstration intentionally uses in-memory test doubles. The
+Discord setup above is required for a real-server run.
 
 ## Security notes
 

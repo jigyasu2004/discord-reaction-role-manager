@@ -1,0 +1,19 @@
+[Script Info]
+Title: Discord Role Manager Demo
+ScriptType: v4.00+
+PlayResX: 1280
+PlayResY: 720
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Body,DejaVu Sans Mono,28,&H00FFFFFF,&H00FFFFFF,&H000B1220,&H000B1220,0,0,0,0,100,100,0,0,1,0,0,7,70,60,62,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:06.00,Body,,0,0,0,,{\b1\fs36\c&H00D3EE&}Discord Reaction & Poll Role Manager{\r}\N\NOne-shot CLI - it exits after one run\N\NADD or REMOVE a role for:\N  * message reactors\N  * native Discord poll voters\N\NDeduplicates users and excludes bots by default
+Dialogue: 0,0:00:06.00,0:00:12.00,Body,,0,0,0,,{\b1\fs36\c&H00D3EE&}REAL SERVER COMMAND{\r}\N\N$ discord-role-manager\N    --message-url "https://discord.com/channels/GUILD/CHANNEL/MESSAGE"\N    --role-id ROLE_ID --action ADD --dry-run\N\NCredentials come only from DISCORD_BOT_TOKEN.\NRemove --dry-run after reviewing the preview.
+Dialogue: 0,0:00:12.00,0:00:18.00,Body,,0,0,0,,{\b1\fs36\c&H00D3EE&}OFFLINE CORE DEMO - NO CREDENTIALS{\r}\N\N$ python demo_offline.py\N\NCollected unique humans: alice, bob, carol\NADDED  alice (101)\NSKIP   bob (102)  role already present\NADDED  carol (103)\N\NResult: discovered=3 changed=2 skipped=1 failed=0
+Dialogue: 0,0:00:18.00,0:00:24.00,Body,,0,0,0,,{\b1\fs36\c&H00D3EE&}AUTOMATED VERIFICATION{\r}\N\N$ pytest -q\N...........                                      [100%]\N11 passed\N\N$ ruff check .\NAll checks passed!\N\NCovers reactions, poll voters, deduplication, bot exclusion,\NADD/REMOVE, skips, dry-run, and URL parsing.
+Dialogue: 0,0:00:24.00,0:00:30.00,Body,,0,0,0,,{\b1\fs36\c&H00D3EE&}SAFETY & FAILURE HANDLING{\r}\N\N  * confirmation before real changes\N  * --dry-run preview\N  * bot token never logged or committed\N  * channel, permission, and role-hierarchy validation\N  * continues if a member left or one update fails\N  * final changed / skipped / failed summary
+Dialogue: 0,0:00:30.00,0:00:36.00,Body,,0,0,0,,{\b1\fs36\c&H00D3EE&}PUBLIC SOURCE + COMPLETE SETUP{\r}\N\Ngithub.com/jigyasu2004/discord-reaction-role-manager\N\NREADME includes:\N  * Discord Developer Portal setup\N  * least-privilege bot installation\N  * .env configuration\N  * ADD and REMOVE commands\N  * real-server and offline verification steps\N\NMIT licensed - Python 3.10+
